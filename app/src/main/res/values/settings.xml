@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="IPSERVIDOR" translatable="false">http://www.google.es</string>
+    <color name="naranjito">#F77C00</color>
+
+    <string-array name="paginas">
+        <item>https://www.animefenix.com/</item>
+        <item>https://animeflv.net/</item>
+    </string-array>
+</resources>
