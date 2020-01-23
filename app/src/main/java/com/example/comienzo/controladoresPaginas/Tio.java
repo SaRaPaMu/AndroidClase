@@ -10,10 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+public class Tio extends PaginaEpisodios {
 
-public class Fenix extends PaginaEpisodios {
-
-    public Fenix (){
+    public Tio(){
         url = "https://www.animefenix.com/";
     }
 
@@ -22,7 +21,7 @@ public class Fenix extends PaginaEpisodios {
 
         List<Episodio> items = new ArrayList<>();
 
-        Elements episodios = doc.getElementsByClass("item");
+        Elements episodios = doc.getElementsByClass("col-6 col-sm-4 col-md-3");
         for (Element link : episodios) {
             String url = link.attr("href");
             String image = link.getElementsByTag("img").attr("src");
