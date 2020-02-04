@@ -8,6 +8,7 @@ import com.example.comienzo.controladoresPaginas.Fenix;
 import com.example.comienzo.controladoresPaginas.Flv;
 import com.example.comienzo.controladoresPaginas.PaginaEpisodios;
 import com.example.comienzo.controladoresPaginas.PaginaListener;
+import com.example.comienzo.controladoresPaginas.Tio;
 import com.example.comienzo.model.Episodio;
 
 import org.jetbrains.annotations.NotNull;
@@ -25,7 +26,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class AnimeFLVController {
+public class AnimeController {
 
     private Context ctx;
     private String[] paginas;
@@ -34,7 +35,7 @@ public class AnimeFLVController {
     OkHttpClient client;
     Request request;
 
-    public AnimeFLVController(Context ctx){
+    public AnimeController(Context ctx){
         this.ctx = ctx;
         client = new OkHttpClient();
 
@@ -48,6 +49,7 @@ public class AnimeFLVController {
         ArrayList<PaginaEpisodios> items = new ArrayList<>();
         items.add(new Fenix());
         items.add(new Flv());
+        items.add(new Tio());
 
         for (PaginaEpisodios pagina: items) {
             getPaginaEpisodios(pagina, listener);
