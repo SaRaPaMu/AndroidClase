@@ -26,12 +26,13 @@ public class Fenix extends PaginaEpisodios {
         for (Element link : episodios) {
             String url = link.attr("href");
             String image = link.getElementsByTag("img").attr("src");
-            Elements nombres = link.getElementsByClass("overtitle has-text-weight-semi-bold");
+            Elements nombres = link.getElementsByClass("overepisode has-text-weight-semibold is-size-7");
             String nombre = "";
             if (nombres !=null && nombres.size() > 0){
                 nombre = nombres.get(0).text();
             }
-            String serie = link.getElementsByClass("overepisode has-text-weight-semibold is-size-7").text();
+
+            String serie = link.getElementsByClass("overtitle has-text-weight-semi-bold").text();
 
             Episodio item = new Episodio();
             item.image = image;

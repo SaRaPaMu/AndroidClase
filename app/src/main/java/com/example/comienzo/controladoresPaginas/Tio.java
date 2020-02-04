@@ -13,7 +13,7 @@ import java.util.List;
 public class Tio extends PaginaEpisodios {
 
     public Tio(){
-        url = "https://www.animefenix.com/";
+        url = "https://tioanime.com/";
     }
 
     @Override
@@ -25,16 +25,16 @@ public class Tio extends PaginaEpisodios {
         for (Element link : episodios) {
             String url = link.attr("href");
             String image = link.getElementsByTag("img").attr("src");
-            Elements nombres = link.getElementsByClass("overtitle has-text-weight-semi-bold");
+            Elements nombres = link.getElementsByClass("title");
             String nombre = "";
             if (nombres !=null && nombres.size() > 0){
                 nombre = nombres.get(0).text();
             }
-            String serie = link.getElementsByClass("overepisode has-text-weight-semibold is-size-7").text();
+            String serie = link.getElementsByClass("title").text();
 
             Episodio item = new Episodio();
             item.image = image;
-            item.nombre = nombre;
+            item.nombre = null;
             item.serie = serie;
             item.urls = new ArrayList(); // Solo si no lo  tuvimos nunca
             item.urls.add(url);

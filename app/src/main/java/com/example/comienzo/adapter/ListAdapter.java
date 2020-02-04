@@ -47,8 +47,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         final Episodio item = items.get(position);
 
-        holder.txtTitle.setText(item.serie);
-        holder.txtSubtitle.setText(item.nombre);
+        holder.txtTitle.setText(item.serie+" "+item.nombre);
+        String urlsAll = "";
+        for(int i = 0; i<item.urls.size();i++){
+            urlsAll=urlsAll +"\n"+ item.urls.get(i);
+        }
+        holder.txtSubtitle.setText(urlsAll);
 
         holder.linRoot.setOnClickListener(new View.OnClickListener() {
             @Override
