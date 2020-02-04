@@ -30,6 +30,7 @@ public class AnimeController {
 
     private Context ctx;
     private String[] paginas;
+    private ArrayList<PaginaEpisodios> items;
 
 
     OkHttpClient client;
@@ -43,10 +44,13 @@ public class AnimeController {
         paginas = res.getStringArray(R.array.paginas);
     }
 
+    public ArrayList<PaginaEpisodios> getItems() {
+        return items;
+    }
 
     public void getEpisodies(PaginaListener listener ) throws IOException {
 
-        ArrayList<PaginaEpisodios> items = new ArrayList<>();
+        items = new ArrayList<>();
         items.add(new Fenix());
         items.add(new Flv());
         items.add(new Tio());
