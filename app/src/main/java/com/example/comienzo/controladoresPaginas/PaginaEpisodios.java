@@ -1,6 +1,6 @@
-package com.example.AnimeNotify.controladoresPaginas;
+package com.example.comienzo.controladoresPaginas;
 
-import com.example.AnimeNotify.model.Episodio;
+import com.example.comienzo.model.Episodio;
 
 import org.jsoup.nodes.Document;
 

@@ -1,4 +1,4 @@
-package com.example.AnimeNotify;
+package com.example.comienzo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,11 +8,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.AnimeNotify.adapter.ListAdapter;
-import com.example.AnimeNotify.controladoresPaginas.AnimeController;
-import com.example.AnimeNotify.controladoresPaginas.PaginaListener;
-import com.example.AnimeNotify.listener.ListAdapterListener;
-import com.example.AnimeNotify.model.Episodio;
+import com.example.comienzo.adapter.ListAdapter;
+import com.example.comienzo.controladoresPaginas.AnimeController;
+import com.example.comienzo.controladoresPaginas.PaginaListener;
+import com.example.comienzo.listener.ListAdapterListener;
+import com.example.comienzo.model.Episodio;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.example.AnimeNotify;
+package com.example.comienzo;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.AnimeNotify.model.Episodio;
+import com.example.comienzo.model.Episodio;
 
 public class DetailsActivity extends BasicApp {
 

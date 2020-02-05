@@ -1,10 +1,10 @@
-package com.example.AnimeNotify.controladoresPaginas;
+package com.example.comienzo.controladoresPaginas;
 
 import android.content.Context;
 import android.content.res.Resources;
 
-import com.example.AnimeNotify.R;
-import com.example.AnimeNotify.model.Episodio;
+import com.example.comienzo.R;
+import com.example.comienzo.model.Episodio;
 
 import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;

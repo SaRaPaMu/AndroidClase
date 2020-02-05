@@ -1,4 +1,4 @@
-package com.example.AnimeNotify.adapter;
+package com.example.comienzo.adapter;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -11,10 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.AnimeNotify.R;
+import com.example.comienzo.R;
 import com.bumptech.glide.Glide;
-import com.example.AnimeNotify.listener.ListAdapterListener;
-import com.example.AnimeNotify.model.Episodio;
+import com.example.comienzo.listener.ListAdapterListener;
+import com.example.comienzo.model.Episodio;
 
 import java.util.ArrayList;
 import java.util.List;

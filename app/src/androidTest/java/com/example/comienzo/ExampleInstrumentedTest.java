@@ -1,4 +1,4 @@
-package com.example.AnimeNotify;
+package com.example.comienzo;
 
 import android.content.Context;
 
