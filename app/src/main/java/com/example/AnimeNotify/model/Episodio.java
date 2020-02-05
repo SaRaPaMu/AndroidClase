@@ -1,4 +1,4 @@
-package com.example.comienzo.model;
+package com.example.AnimeNotify.model;
 
 import java.util.ArrayList;
 

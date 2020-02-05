@@ -1,4 +1,4 @@
-package com.example.comienzo;
+package com.example.AnimeNotify;
 
 import android.os.Bundle;
 

@@ -1,16 +1,10 @@
-package com.example.comienzo.controladoresPaginas;
+package com.example.AnimeNotify.controladoresPaginas;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.widget.Toast;
 
-import com.example.comienzo.R;
-import com.example.comienzo.controladoresPaginas.Fenix;
-import com.example.comienzo.controladoresPaginas.Flv;
-import com.example.comienzo.controladoresPaginas.PaginaEpisodios;
-import com.example.comienzo.controladoresPaginas.PaginaListener;
-import com.example.comienzo.controladoresPaginas.Tio;
-import com.example.comienzo.model.Episodio;
+import com.example.AnimeNotify.R;
+import com.example.AnimeNotify.model.Episodio;
 
 import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;

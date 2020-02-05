@@ -1,6 +1,6 @@
-package com.example.comienzo.controladoresPaginas;
+package com.example.AnimeNotify.controladoresPaginas;
 
-import com.example.comienzo.model.Episodio;
+import com.example.AnimeNotify.model.Episodio;
 
 import java.util.List;
 

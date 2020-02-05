@@ -1,6 +1,6 @@
-package com.example.comienzo.controladoresPaginas;
+package com.example.AnimeNotify.controladoresPaginas;
 
-import com.example.comienzo.model.Episodio;
+import com.example.AnimeNotify.model.Episodio;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,10 +11,10 @@ import java.util.List;
 
 
 
-public class Flv extends PaginaEpisodios {
+public class Fenix extends PaginaEpisodios {
 
-    public Flv(){
-        url = "https://animeflv.net/";
+    public Fenix (){
+        url = "https://www.animefenix.com/";
     }
 
     @Override
@@ -22,16 +22,17 @@ public class Flv extends PaginaEpisodios {
 
         List<Episodio> items = new ArrayList<>();
 
-        Elements episodios = doc.getElementsByClass("fa-play");
+        Elements episodios = doc.getElementsByClass("item");
         for (Element link : episodios) {
             String url = link.attr("href");
             String image = link.getElementsByTag("img").attr("src");
-            Elements nombres = link.getElementsByClass("Capi");
+            Elements nombres = link.getElementsByClass("overepisode has-text-weight-semibold is-size-7");
             String nombre = "";
             if (nombres !=null && nombres.size() > 0){
                 nombre = nombres.get(0).text();
             }
-            String serie = link.getElementsByTag("strong").text();
+
+            String serie = link.getElementsByClass("overtitle has-text-weight-semi-bold").text();
 
             Episodio item = new Episodio();
             item.image = image;

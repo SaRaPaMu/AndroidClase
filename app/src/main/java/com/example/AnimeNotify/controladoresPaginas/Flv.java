@@ -1,6 +1,6 @@
-package com.example.comienzo.controladoresPaginas;
+package com.example.AnimeNotify.controladoresPaginas;
 
-import com.example.comienzo.model.Episodio;
+import com.example.AnimeNotify.model.Episodio;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -10,10 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Tio extends PaginaEpisodios {
 
-    public Tio(){
-        url = "https://tioanime.com/";
+public class Flv extends PaginaEpisodios {
+
+    public Flv(){
+        url = "https://animeflv.net/";
     }
 
     @Override
@@ -21,20 +22,20 @@ public class Tio extends PaginaEpisodios {
 
         List<Episodio> items = new ArrayList<>();
 
-        Elements episodios = doc.getElementsByClass("col-6 col-sm-4 col-md-3");
+        Elements episodios = doc.getElementsByClass("fa-play");
         for (Element link : episodios) {
             String url = link.attr("href");
             String image = link.getElementsByTag("img").attr("src");
-            Elements nombres = link.getElementsByClass("title");
+            Elements nombres = link.getElementsByClass("Capi");
             String nombre = "";
             if (nombres !=null && nombres.size() > 0){
                 nombre = nombres.get(0).text();
             }
-            String serie = link.getElementsByClass("title").text();
+            String serie = link.getElementsByTag("strong").text();
 
             Episodio item = new Episodio();
             item.image = image;
-            item.nombre = null;
+            item.nombre = nombre;
             item.serie = serie;
             item.urls = new ArrayList(); // Solo si no lo  tuvimos nunca
             item.urls.add(url);
