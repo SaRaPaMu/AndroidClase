@@ -1,9 +1,10 @@
-package com.example.comienzo;
+package com.example.comienzo.controladoresPaginas;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.widget.Toast;
 
+import com.example.comienzo.R;
 import com.example.comienzo.controladoresPaginas.Fenix;
 import com.example.comienzo.controladoresPaginas.Flv;
 import com.example.comienzo.controladoresPaginas.PaginaEpisodios;
@@ -44,10 +45,6 @@ public class AnimeController {
         paginas = res.getStringArray(R.array.paginas);
     }
 
-    public ArrayList<PaginaEpisodios> getItems() {
-        return items;
-    }
-
     public void getEpisodies(PaginaListener listener ) throws IOException {
 
         items = new ArrayList<>();
@@ -82,8 +79,7 @@ public class AnimeController {
 
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                Toast toast = Toast.makeText(ctx, "UPS... Fue mal", Toast.LENGTH_SHORT);
-                toast.show();
+
                 e.printStackTrace();
             }
         });

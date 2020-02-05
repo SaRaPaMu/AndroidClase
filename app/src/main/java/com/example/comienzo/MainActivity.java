@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.example.comienzo.adapter.ListAdapter;
+import com.example.comienzo.controladoresPaginas.AnimeController;
 import com.example.comienzo.controladoresPaginas.PaginaListener;
 import com.example.comienzo.listener.ListAdapterListener;
 import com.example.comienzo.model.Episodio;
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ctx = this;
         initData();
     }
 
