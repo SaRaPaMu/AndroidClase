@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.comienzo.adapter.ListAdapter;
 import com.example.comienzo.controladoresPaginas.PaginaListener;
@@ -30,21 +31,18 @@ public class MainActivity extends AppCompatActivity {
 
     void initData(){
 
+        final List<Episodio> listado = new ArrayList<>();
+
         AnimeController ctrl = new AnimeController(ctx);
         try {
             ctrl.getEpisodies(new PaginaListener() {
                 @Override
                 public void devolver(List<Episodio> items) {
+                    listado.addAll(items);
                 }
             });
         } catch (IOException e) {
             e.printStackTrace();
-        }
-
-        List<Episodio> listado = new ArrayList<>();
-/*
-        for (Episodio episodio : ctrl.getItems()) {
-
         }
 
         ListAdapterListener listener = new ListAdapterListener() {
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             public void click(Episodio item) {
 
                 Intent intent = new Intent(ctx, DetailsActivity.class);
-                intent.putExtra(DetailsActivity.ITEM_CLICKADO, item);
+                intent.putExtra(DetailsActivity.ITEM_CLICKADO, item.nombre);
                 intent.putExtra("episodio","");
                 startActivity(intent);
             }
@@ -62,10 +60,49 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
 
-        RecyclerView lista = findViewById(R.id.act_main_lista_rec);
+        RecyclerView lista = findViewById(R.id.main_list);
         lista.setLayoutManager(mLayoutManager);
         lista.setAdapter(adapter);
-        */
+
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        ctx = this;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        ctx = null;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
 
 }
