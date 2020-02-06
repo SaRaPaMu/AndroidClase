@@ -1,6 +1,7 @@
 package com.example.comienzo.adapter;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,9 +47,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         final Episodio item = items.get(position);
+        Log.d("Adapter","Posicion:"+position);
 
         holder.txtTitle.setText(item.serie+" "+item.nombre);
-        String urlsAll = "";
+        String urlsAll = "urls: ";
         for(int i = 0; i<item.urls.size();i++){
             urlsAll=urlsAll +"\n"+ item.urls.get(i);
         }

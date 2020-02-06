@@ -37,6 +37,9 @@ public class Tio extends PaginaEpisodios {
             item.nombre = null;
             item.serie = serie;
             item.urls = new ArrayList(); // Solo si no lo  tuvimos nunca
+            if (url == null){
+                item.urls.add("Faloooo");
+            }
             item.urls.add(url);
             items.add(item);
         }

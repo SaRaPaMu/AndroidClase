@@ -32,21 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
     void initData(){
 
+        final RecyclerView lista = findViewById(R.id.main_list);
         final List<Episodio> listado = new ArrayList<>();
-
-        AnimeController ctrl = new AnimeController(ctx);
-        try {
-            ctrl.getEpisodies(new PaginaListener() {
-                @Override
-                public void devolver(List<Episodio> items) {
-                    listado.addAll(items);
-                }
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        ListAdapterListener listener = new ListAdapterListener() {
+        final ListAdapterListener listener = new ListAdapterListener() {
             @Override
             public void click(Episodio item) {
 
@@ -56,14 +44,32 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         };
+        final ListAdapter adapter = new ListAdapter(this, listado, listener);
+        lista.setAdapter(adapter);
 
-        ListAdapter adapter = new ListAdapter(this, listado, listener);
+
+        AnimeController ctrl = new AnimeController(ctx);
+        try {
+            ctrl.getEpisodies(new PaginaListener() {
+                @Override
+                public void devolver(List<Episodio> items) {
+                    listado.addAll(items);
+
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
-
-        RecyclerView lista = findViewById(R.id.main_list);
         lista.setLayoutManager(mLayoutManager);
-        lista.setAdapter(adapter);
 
     }
 
