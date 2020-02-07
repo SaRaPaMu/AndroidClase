@@ -24,24 +24,33 @@ public class Flv extends PaginaEpisodios {
 
         Elements episodios = doc.getElementsByClass("Episode");
         for (Element link : episodios) {
-            String url = link.attr("href");
-            String image = link.getElementsByTag("img").attr("src");
+
+            if(link.getElementsByClass("OUTBRAIN").size() > 0){
+                continue;
+            }
+
+            String url = "https://m.animeflv.net" +  link.getElementsByTag("a").attr("href");
+            String image = "https://m.animeflv.net" + link.getElementsByTag("img").attr("src");
             //Element span = link.getElementsByTag("a").tagName("p").get(0);
             String nombre = "";
-            nombre = link.getElementsByTag("a").tagName("p").text();
+            Elements a = link.getElementsByTag("a");
+            Elements p = a.tagName("p");
+            Elements span = p.get(0).getElementsByTag("span");
+            nombre = span.text();
+
 
             String serie = link.getElementsByClass("Title").text();
 
+
             Episodio item = new Episodio();
             item.image = image;
+            //item.nombre = String.valueOf(nombre.length());
             item.nombre = nombre;
             item.serie = serie;
-            item.urls = new ArrayList(); // Solo si no lo  tuvimos nunca
-            if (url == null){
-                item.urls.add("Faloooo");
-            }
+            item.urls = new ArrayList();
             item.urls.add(url);
             items.add(item);
+
         }
 
         return items;

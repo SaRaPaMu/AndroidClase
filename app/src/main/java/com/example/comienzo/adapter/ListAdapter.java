@@ -52,7 +52,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
         holder.txtTitle.setText(item.serie+" "+item.nombre);
         String urlsAll = "urls: ";
         for(int i = 0; i<item.urls.size();i++){
-            urlsAll=urlsAll +"\n"+ item.urls.get(i);
+            urlsAll=urlsAll + item.urls.get(i)+" ";
         }
         holder.txtSubtitle.setText(urlsAll);
 

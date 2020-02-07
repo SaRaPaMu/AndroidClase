@@ -10,7 +10,7 @@ import android.os.Bundle;
 
 import com.example.comienzo.adapter.ListAdapter;
 import com.example.comienzo.controladoresPaginas.AnimeController;
-import com.example.comienzo.controladoresPaginas.PaginaListener;
+import com.example.comienzo.listener.PaginaListener;
 import com.example.comienzo.listener.ListAdapterListener;
 import com.example.comienzo.model.Episodio;
 
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("AnimeNotify");
         ctx = this;
         initData();
     }
@@ -37,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         final ListAdapterListener listener = new ListAdapterListener() {
             @Override
             public void click(Episodio item) {
+
+                if (item.urls.isEmpty()){
+                    return;
+                }
 
                 Intent intent = new Intent(ctx, DetailsActivity.class);
                 intent.putExtra(DetailsActivity.ITEM_CLICKADO, item.nombre);

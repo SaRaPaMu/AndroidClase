@@ -24,25 +24,23 @@ public class Fenix extends PaginaEpisodios {
 
         Elements episodios = doc.getElementsByClass("item");
         for (Element link : episodios) {
-            String url = link.attr("href");
+
+            String url = link.getElementsByTag("a").attr("href");
             String image = link.getElementsByTag("img").attr("src");
             //Elements nombres = link.getElementsByClass("overepisode has-text-weight-semibold is-size-7");
-            String nombre = link.getElementsByClass("overepisode has-text-weight-semibold is-size-7").text();
+            String nombre = link.getElementsByClass("overepisode").text();
             /*
             if (nombres !=null && nombres.size() > 0){
                 nombre = nombres.get(0).text();
             }
             */
-            String serie = link.getElementsByClass("overtitle has-text-weight-semi-bold").text();
+            String serie = link.getElementsByClass("overtitle").text();
 
             Episodio item = new Episodio();
             item.image = image;
-            item.nombre = nombre;
+            item.nombre = nombre.substring(2);
             item.serie = serie;
-            item.urls = new ArrayList(); // Solo si no lo  tuvimos nunca
-            if (url == null){
-                item.urls.add("Faloooo");
-            }
+            item.urls = new ArrayList();
             item.urls.add(url);
             items.add(item);
         }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 
 import com.example.comienzo.R;
+import com.example.comienzo.listener.PaginaListener;
 import com.example.comienzo.model.Episodio;
 
 import org.jetbrains.annotations.NotNull;

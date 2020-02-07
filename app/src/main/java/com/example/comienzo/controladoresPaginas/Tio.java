@@ -23,8 +23,9 @@ public class Tio extends PaginaEpisodios {
 
         Elements episodios = doc.getElementsByClass("col-6 col-sm-4 col-md-3");
         for (Element link : episodios) {
-            String url = link.attr("href");
-            String image = link.getElementsByTag("img").attr("src");
+
+            String url ="https://tioanime.com"+ link.getElementsByTag("a").attr("href");
+            String image ="https://tioanime.com" + link.getElementsByTag("img").attr("src");
             Elements nombres = link.getElementsByClass("title");
             String nombre = "";
             if (nombres !=null && nombres.size() > 0){
@@ -36,10 +37,7 @@ public class Tio extends PaginaEpisodios {
             item.image = image;
             item.nombre = null;
             item.serie = serie;
-            item.urls = new ArrayList(); // Solo si no lo  tuvimos nunca
-            if (url == null){
-                item.urls.add("Faloooo");
-            }
+            item.urls = new ArrayList();
             item.urls.add(url);
             items.add(item);
         }
