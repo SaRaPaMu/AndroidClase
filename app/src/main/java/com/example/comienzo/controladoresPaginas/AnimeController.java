@@ -44,7 +44,7 @@ public class AnimeController {
     public void getEpisodies(PaginaListener listener ) throws IOException {
 
         items = new ArrayList<>();
-        items.add(new Tio(ctx));
+        items.add(new Tio());
         items.add(new Flv());
         items.add(new Fenix());
 
