@@ -25,6 +25,9 @@ public class DetailsActivity extends BasicApp {
     }
 
     void initData(){
+        if (item == null){
+            return;
+        }
         TextView txt = findViewById(R.id.act_details_item_lbl);
         txt.setText("DETALLES: "+item.serie);
     }

@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 Intent intent = new Intent(ctx, DetailsActivity.class);
-                intent.putExtra(DetailsActivity.ITEM_CLICKADO, item.nombre);
+                intent.putExtra(DetailsActivity.ITEM_CLICKADO, item);
                 intent.putExtra("episodio","");
                 startActivity(intent);
             }
