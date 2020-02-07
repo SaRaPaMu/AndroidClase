@@ -17,8 +17,6 @@ public class DetailsActivity extends BasicApp {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_details);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
         item = (Episodio) intent.getSerializableExtra(ITEM_CLICKADO);
