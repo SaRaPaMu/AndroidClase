@@ -58,7 +58,10 @@ public class MainActivity extends AppCompatActivity {
             ctrl.getEpisodies(new PaginaListener() {
                 @Override
                 public void devolver(List<Episodio> items) {
+
+
                     listado.addAll(items);
+
 
 
                     runOnUiThread(new Runnable() {
