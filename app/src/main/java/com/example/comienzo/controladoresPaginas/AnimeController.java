@@ -32,6 +32,7 @@ public class AnimeController {
     OkHttpClient client;
     Request request;
 
+
     public AnimeController(Context ctx){
         this.ctx = ctx;
         client = new OkHttpClient();
@@ -43,9 +44,10 @@ public class AnimeController {
     public void getEpisodies(PaginaListener listener ) throws IOException {
 
         items = new ArrayList<>();
-        items.add(new Fenix());
+        items.add(new Tio(ctx));
         items.add(new Flv());
-        items.add(new Tio());
+        items.add(new Fenix());
+
 
         for (PaginaEpisodios pagina: items) {
             getPaginaEpisodios(pagina, listener);

@@ -58,28 +58,25 @@ public class MainActivity extends AppCompatActivity {
             ctrl.getEpisodies(new PaginaListener() {
                 @Override
                 public void devolver(List<Episodio> items) {
-
-
+                        listado.addAll(items);
+                    /*
                     for (Episodio item : items) {
                         boolean isIn = false;
-                        String cSerie = ""+item.serie;
-                        
-                        for (Episodio episodio : listado) {
-                            String serie = ""+episodio.serie;
-                            if (cSerie.contains(serie)){
-                                isIn = true;
-                                item.urls.addAll(episodio.urls);
-                                break;
+                        String cSerie = "" + item.serie;
+
+                            for (Episodio episodio : listado) {
+                                String serie = "" + episodio.serie;
+                                if (cSerie.contains(serie)) {
+                                    isIn = true;
+                                    item.urls.addAll(episodio.urls);
+                                    break;
+                                }
                             }
-                        }
                         if (!isIn){
                             listado.add(item);
                         }
                     }
-
-                    //listado.addAll(items);
-
-
+                    */
 
                     runOnUiThread(new Runnable() {
                         @Override
