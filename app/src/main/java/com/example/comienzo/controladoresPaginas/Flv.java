@@ -43,6 +43,7 @@ public class Flv extends PaginaEpisodios {
 
 
             Episodio item = new Episodio();
+            item.notificar=true;
             item.image = image;
             //item.nombre = String.valueOf(nombre.length());
             item.nombre = nombre;

@@ -2,6 +2,7 @@ package com.example.comienzo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
@@ -22,6 +23,8 @@ public class DetailsActivity extends BasicApp {
         item = (Episodio) intent.getSerializableExtra(ITEM_CLICKADO);
 
         initData();
+
+
     }
 
     void initData(){
@@ -29,7 +32,18 @@ public class DetailsActivity extends BasicApp {
             return;
         }
         TextView txt = findViewById(R.id.act_details_item_lbl);
-        txt.setText("DETALLES: "+item.serie);
+        Switch notificar = findViewById(R.id.act_details_item_switch);
+
+        String urls="";
+        for(String url: item.urls){
+            urls= urls+"\n"+url;
+
+        }
+        txt.setText(item.serie+urls);
+
+        notificar.setChecked(item.notificar);
+
     }
+
 
 }

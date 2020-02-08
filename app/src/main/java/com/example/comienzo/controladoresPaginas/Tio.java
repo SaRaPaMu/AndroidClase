@@ -48,29 +48,28 @@ public class Tio extends PaginaEpisodios {
             String serie = link.getElementsByClass("title").text();
 
             Log.v("CheckData", url);
+
             getNombreSerieTioAnime(url);
 
-            //TioAsyncTask tAsT = new TioAsyncTask(url);
-
-            //String name =  tAsT.doInBackground();
-
-
             Episodio item = new Episodio();
+            item.notificar=true;
             item.image = image;
             item.serie = serie;
-            //item.nombre = serie.substring(name.length());
             item.urls = new ArrayList();
             item.urls.add(url);
             items.add(item);
         }
-        /*
+
+
         int i = 0;
         for(Episodio epi: items){
+
             epi.nombre = nombre.get(i);
             epi.serie = epi.serie.substring(nombre.get(i).length());
             i++;
         }
-*/
+
+
         return items;
     }
 

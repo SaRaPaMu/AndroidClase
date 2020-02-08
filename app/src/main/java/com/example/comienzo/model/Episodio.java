@@ -9,4 +9,5 @@ public class Episodio implements Serializable {
     public String image;
     public String nombre;
     public String serie;
+    public boolean notificar;
 }

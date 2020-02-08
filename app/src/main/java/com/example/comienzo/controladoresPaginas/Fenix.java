@@ -37,6 +37,7 @@ public class Fenix extends PaginaEpisodios {
             String serie = link.getElementsByClass("overtitle").text();
 
             Episodio item = new Episodio();
+            item.notificar=true;
             item.image = image;
             item.nombre = nombre.substring(2);
             item.serie = serie;
