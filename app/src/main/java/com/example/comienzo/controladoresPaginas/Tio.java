@@ -47,9 +47,8 @@ public class Tio extends PaginaEpisodios {
             String image ="https://tioanime.com" + link.getElementsByTag("img").attr("src");
             String serie = link.getElementsByClass("title").text();
 
-            Log.v("CheckData", url);
 
-            getNombreSerieTioAnime(url);
+            //getNombreSerieTioAnime(url);
 
             Episodio item = new Episodio();
             item.notificar=true;
@@ -59,16 +58,6 @@ public class Tio extends PaginaEpisodios {
             item.urls.add(url);
             items.add(item);
         }
-
-
-        int i = 0;
-        for(Episodio epi: items){
-
-            epi.nombre = nombre.get(i);
-            epi.serie = epi.serie.substring(nombre.get(i).length());
-            i++;
-        }
-
 
         return items;
     }
@@ -98,7 +87,6 @@ public class Tio extends PaginaEpisodios {
 
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                Log.v("CheckFailure1", "No ha funcionao");
                 e.printStackTrace();
             }
         });
@@ -128,7 +116,6 @@ public class Tio extends PaginaEpisodios {
 
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                Log.v("CheckFailure2", "No ha funcionao");
                 e.printStackTrace();
             }
         });

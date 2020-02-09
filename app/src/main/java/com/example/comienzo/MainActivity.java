@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.comienzo.adapter.ListAdapter;
 import com.example.comienzo.controladoresPaginas.AnimeController;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     void initData(){
 
+        GsonReadWrite gsonReadWrite = new GsonReadWrite(ctx);
         final RecyclerView lista = findViewById(R.id.main_list);
         final List<Episodio> listado = new ArrayList<>();
         final ListAdapterListener listener = new ListAdapterListener() {
@@ -58,14 +60,15 @@ public class MainActivity extends AppCompatActivity {
             ctrl.getEpisodies(new PaginaListener() {
                 @Override
                 public void devolver(List<Episodio> items) {
-                        listado.addAll(items);
-                    /*
+                        //listado.addAll(items);
+
                     for (Episodio item : items) {
                         boolean isIn = false;
                         String cSerie = "" + item.serie;
 
                             for (Episodio episodio : listado) {
                                 String serie = "" + episodio.serie;
+
                                 if (cSerie.contains(serie)) {
                                     isIn = true;
                                     item.urls.addAll(episodio.urls);
@@ -76,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                             listado.add(item);
                         }
                     }
-                    */
+
 
                     runOnUiThread(new Runnable() {
                         @Override
@@ -89,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         lista.setLayoutManager(mLayoutManager);

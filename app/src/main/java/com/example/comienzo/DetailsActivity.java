@@ -2,6 +2,8 @@ package com.example.comienzo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -32,7 +34,7 @@ public class DetailsActivity extends BasicApp {
             return;
         }
         TextView txt = findViewById(R.id.act_details_item_lbl);
-        Switch notificar = findViewById(R.id.act_details_item_switch);
+        final Switch notificar = findViewById(R.id.act_details_item_switch);
 
         String urls="";
         for(String url: item.urls){
@@ -42,7 +44,20 @@ public class DetailsActivity extends BasicApp {
         txt.setText(item.serie+urls);
 
         notificar.setChecked(item.notificar);
+        notificar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+                if(isChecked){
+                    notificar.setChecked(true);
+                    item.notificar=true;
+                }else{
+                    notificar.setChecked(false);
+                    item.notificar=false;
+                }
+
+            }
+        });
     }
 
 
